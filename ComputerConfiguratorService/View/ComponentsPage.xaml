@@ -1,0 +1,59 @@
+﻿<Page x:Class="ComputerConfiguratorService.View.ComponentsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ComputerConfiguratorService.View"
+      mc:Ignorable="d" 
+
+      Title="ComponentsPage">
+
+    <Grid Background="{StaticResource WindowBackgroundBrush}">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="400">
+
+            <TextBlock Text="Комплектующие" 
+                       FontSize="28" 
+                       FontWeight="Bold" 
+                       Foreground="White" 
+                       Margin="0,0,0,40" 
+                       HorizontalAlignment="Center"/>
+
+            <Button Content="Процессоры" 
+                    Style="{StaticResource ButtonStyle}" 
+                    Click="CPUsButton_Click" 
+                    Margin="0,10"/>
+            <Button Content="Видеокарты" 
+                    Style="{StaticResource ButtonStyle}" 
+                    Click="GPUsButton_Click" 
+                    Margin="0,10"/>
+            <Button Content="Оперативная память" 
+                    Style="{StaticResource ButtonStyle}" 
+                    Click="RAMsButton_Click" 
+                    Margin="0,10"/>
+            <Button Content="Накопители" 
+                    Style="{StaticResource ButtonStyle}" 
+                    Click="StoragesButton_Click" 
+                    Margin="0,10"/>
+            <Button Content="Блоки питания" 
+                    Style="{StaticResource ButtonStyle}" 
+                    Click="PowerSuppliesButton_Click" 
+                    Margin="0,10"/>
+            <Button Content="Материнские платы" 
+                    Style="{StaticResource ButtonStyle}" 
+                    Click="MotherboardsButton_Click" 
+                    Margin="0,10"/>
+            <Button Content="Охлаждение процессора" 
+                    Style="{StaticResource ButtonStyle}" 
+                    Click="CPUCoolingButton_Click" 
+                    Margin="0,10"/>
+            <Button Content="Корпуса" 
+                    Style="{StaticResource ButtonStyle}" 
+                    Click="CasesButton_Click" 
+                    Margin="0,10"/>
+            <Button Content="Охлаждение корпуса" 
+                    Style="{StaticResource ButtonStyle}" 
+                    Click="CaseCoolingButton_Click" 
+                    Margin="0,10"/>
+        </StackPanel>
+    </Grid>
+</Page>

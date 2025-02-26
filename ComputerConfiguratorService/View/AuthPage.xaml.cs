@@ -55,7 +55,6 @@ namespace ComputerConfiguratorService.View
                 else
                 {
                     MessageBox.Show("Неверный логин или пароль.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    Manager.MainFrame.Navigate(new ServiceMenuPage());
                 }
             }
             catch (Exception ex)

@@ -6,21 +6,49 @@
       xmlns:local="clr-namespace:ComputerConfiguratorService.View"
       mc:Ignorable="d" 
       Title="AuthPage">
-
-    <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Width="400">
-
-        <Border Background="{StaticResource WindowBackgroundBrush}" BorderBrush="White" BorderThickness="1" Padding="20" CornerRadius="25">
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Width="400" Margin="10">
+        <Border Padding="20" CornerRadius="25">
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="350">
+                <TextBlock Text="Авторизация" 
+                           HorizontalAlignment="Center" 
+                           FontSize="28" 
+                           FontWeight="Bold" 
+                           Margin="0,0,0,30"/>
 
-                <TextBlock HorizontalAlignment="Center" FontSize="28" FontWeight="Bold" Foreground="White" Text="Авторизация" Margin="0,0,0,20"/>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <TextBlock Text="Логин:" 
+                               Width="80" 
+                               FontSize="16" 
+                               FontWeight="Bold" 
+                               Margin="0,0,10,0"/>
+                    <TextBox x:Name="UsernameTextBox" 
+                             Width="250" 
+                             Height="40" 
+                             Padding="5" 
+                             FontSize="16"/>
+                </StackPanel>
 
-                <TextBlock FontSize="16" FontWeight="Bold" Foreground="White" Text="Логин" />
-                <TextBox x:Name="UsernameTextBox"/>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                    <TextBlock Text="Пароль:" 
+                               Width="80" 
+                               FontSize="16" 
+                               FontWeight="Bold" 
+                               Margin="0,0,10,0"/>
+                    <PasswordBox x:Name="PasswordBox" 
+                                 Width="250" 
+                                 Height="40" 
+                                 Padding="5" 
+                                 FontSize="16"/>
+                </StackPanel>
 
-                <TextBlock FontSize="16" FontWeight="Bold" Foreground="White" Text="Пароль" />
-                <PasswordBox x:Name="PasswordBox" Style="{StaticResource PasswordFieldStyle}" />
-
-                <Button x:Name="LogInBtn" Content="Войти" Style="{StaticResource ButtonStyle}" Cursor="Hand" Click="LogInBtn_Click"/>
+                <Button x:Name="LogInBtn" 
+                        Content="Войти" 
+                        Width="200" 
+                        Height="50" 
+                        Margin="0,20,0,0" 
+                        FontSize="16" 
+                        FontWeight="Bold" 
+                        Click="LogInBtn_Click"/>
             </StackPanel>
         </Border>
     </Grid>

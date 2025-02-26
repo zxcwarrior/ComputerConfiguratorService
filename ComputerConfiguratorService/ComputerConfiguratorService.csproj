@@ -161,11 +161,17 @@
     <Compile Include="View\CaseCoolingPage.xaml.cs">
       <DependentUpon>CaseCoolingPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\CaseFormFactorsPage.xaml.cs">
+      <DependentUpon>CaseFormFactorsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\CasesPage.xaml.cs">
       <DependentUpon>CasesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ComponentsPage.xaml.cs">
       <DependentUpon>ComponentsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CoolingTypesPage.xaml.cs">
+      <DependentUpon>CoolingTypesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\CPUCoolingPage.xaml.cs">
       <DependentUpon>CPUCoolingPage.xaml</DependentUpon>
@@ -173,8 +179,20 @@
     <Compile Include="View\CPUsPage.xaml.cs">
       <DependentUpon>CPUsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\EfficiencyRatingsPage.xaml.cs">
+      <DependentUpon>EfficiencyRatingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GPUMemoryTypesPage.xaml.cs">
+      <DependentUpon>GPUMemoryTypesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\GPUsPage.xaml.cs">
       <DependentUpon>GPUsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManufacturersPage.xaml.cs">
+      <DependentUpon>ManufacturersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MotherboardFormFactorPage.xaml.cs">
+      <DependentUpon>MotherboardFormFactorPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MotherboardsPage.xaml.cs">
       <DependentUpon>MotherboardsPage.xaml</DependentUpon>
@@ -185,11 +203,23 @@
     <Compile Include="View\RAMsPage.xaml.cs">
       <DependentUpon>RAMsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\RAMTypesPage.xaml.cs">
+      <DependentUpon>RAMTypesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ServiceMenuPage.xaml.cs">
       <DependentUpon>ServiceMenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\SocketsPage.xaml.cs">
+      <DependentUpon>SocketsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\StoragesPage.xaml.cs">
       <DependentUpon>StoragesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\StorageTypesPage.xaml.cs">
+      <DependentUpon>StorageTypesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\VendorsPage.xaml.cs">
+      <DependentUpon>VendorsPage.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -211,11 +241,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\CaseFormFactorsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\CasesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ComponentsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CoolingTypesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -227,7 +265,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\EfficiencyRatingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GPUMemoryTypesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\GPUsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ManufacturersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MotherboardFormFactorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -243,11 +297,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\RAMTypesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ServiceMenuPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\SocketsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\StoragesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\StorageTypesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\VendorsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -297,7 +367,6 @@
       <DependentUpon>Database.edmx</DependentUpon>
       <LastGenOutput>Database.cs</LastGenOutput>
     </Content>
-    <Resource Include="zalupa.txt" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

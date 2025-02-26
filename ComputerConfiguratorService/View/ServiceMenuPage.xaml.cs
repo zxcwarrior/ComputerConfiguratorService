@@ -34,5 +34,9 @@ namespace ComputerConfiguratorService.View
         {
             //Manager.MainFrame.Navigate(new BuildsPage());
         }
+        private void BackDataButton_Click(object sender, RoutedEventArgs e)
+        {
+            //Manager.MainFrame.Navigate(new BuildsPage());
+        }
     }
 }

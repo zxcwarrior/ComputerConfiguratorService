@@ -6,20 +6,47 @@
       xmlns:local="clr-namespace:ComputerConfiguratorService.View"
       mc:Ignorable="d" 
       Title="ServiceMenuPage">
-
-    <Grid Background="{StaticResource WindowBackgroundBrush}">
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="400">
-            <TextBlock Text="Меню сервиса" FontSize="28" FontWeight="Bold" Foreground="White" Margin="0,0,0,40" HorizontalAlignment="Center"/>
-
+    <Grid Margin="10">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Меню сервиса" 
+                       HorizontalAlignment="Center" 
+                       FontSize="28" 
+                       FontWeight="Bold" 
+                       Margin="0,0,0,40"/>
+            
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="0" Content="Комплектующие" Style="{StaticResource ButtonStyle}" Click="ComponentsButton_Click" Margin="0,0,10,0" FontSize="20"/>
+                <Button Grid.Column="0" 
+                        Content="Комплектующие" 
+                        Click="ComponentsButton_Click" 
+                        Width="180" 
+                        Height="50" 
+                        Margin="0,0,10,0" 
+                        FontSize="16" 
+                        FontWeight="Bold"/>
 
-                <Button Grid.Column="1" Content="Сборки" Style="{StaticResource ButtonStyle}" Click="BuildsButton_Click" Margin="10,0,0,0" FontSize="20"/>
+                <Button Grid.Column="2" 
+                        Content="Сборки" 
+                        Click="BuildsButton_Click" 
+                        Width="180" 
+                        Height="50" 
+                        Margin="10,0,0,0" 
+                        FontSize="16" 
+                        FontWeight="Bold" Cursor="Hand"/>
+                
+                <Button Grid.Column="1" 
+                        Content="Справочные данные" 
+                        Click="BackDataButton_Click" 
+                        Width="180" 
+                        Height="50" 
+                        Margin="10,0,0,0" 
+                        FontSize="16" 
+                        FontWeight="Bold"/>
             </Grid>
         </StackPanel>
     </Grid>

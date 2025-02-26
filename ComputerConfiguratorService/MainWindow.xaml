@@ -5,23 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComputerConfiguratorService"
         mc:Ignorable="d"
-        Title="MainWindow" MaxHeight="1080" MaxWidth="1920" MinHeight="450" MinWidth="800"
+        Title="MainWindow" 
+        MaxHeight="1080" MaxWidth="1920" MinHeight="450" MinWidth="800"
         WindowStartupLocation="CenterScreen" WindowState="Normal">
-    <Window.Background>
-        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-            <GradientStop Color="#1C1C1C" Offset="0"/>
-            <GradientStop Color="#333333" Offset="1"/>
-        </LinearGradientBrush>
-    </Window.Background>
-    <Grid>
+    <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Name="DateTimeText" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="350"/>
+        <TextBlock Name="DateTimeText" 
+                   Grid.Row="0" 
+                   HorizontalAlignment="Left" 
+                   VerticalAlignment="Top" 
+                   FontSize="18" 
+                   FontWeight="Bold"/>
 
-        <Button x:Name="BackButton" Click="BackButton_Click" Content="Назад" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" Style="{StaticResource ButtonStyle}" Width="100" Height="30" Margin="0,10,5,0"/>
-        <Frame x:Name="MainFrame" Grid.Row="1" NavigationUIVisibility="Hidden" ContentRendered="MainFrame_ContentRendered"/>
+        <Button x:Name="BackButton" 
+                Click="BackButton_Click" 
+                Content="Назад" 
+                Grid.Row="0" 
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Top" 
+                Width="100" 
+                Height="40" 
+                Margin="0,10,10,0" 
+                FontSize="16"/>
+
+        <Frame x:Name="MainFrame" 
+               Grid.Row="1" 
+               NavigationUIVisibility="Hidden" 
+               ContentRendered="MainFrame_ContentRendered"/>
     </Grid>
 </Window>

@@ -158,6 +158,9 @@
     <Compile Include="View\AuthPage.xaml.cs">
       <DependentUpon>AuthPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\BackDataPage.xaml.cs">
+      <DependentUpon>BackDataPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\CaseCoolingPage.xaml.cs">
       <DependentUpon>CaseCoolingPage.xaml</DependentUpon>
     </Compile>
@@ -234,6 +237,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\AuthPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BackDataPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

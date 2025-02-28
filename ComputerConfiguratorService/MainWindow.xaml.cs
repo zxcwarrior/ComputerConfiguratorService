@@ -35,7 +35,7 @@ namespace ComputerConfiguratorService
             timer.Start();
 
             Manager.MainFrame = MainFrame;
-            Manager.MainFrame.Navigate(new AuthPage());
+            Manager.MainFrame.Navigate(new ServiceMenuPage());
         }
 
         private void Timer_Tick(object sender, EventArgs e)

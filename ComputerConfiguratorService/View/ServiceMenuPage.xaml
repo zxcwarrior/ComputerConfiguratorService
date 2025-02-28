@@ -30,14 +30,14 @@
                         FontSize="16" 
                         FontWeight="Bold"/>
 
-                <Button Grid.Column="2" 
+                <!--<Button Grid.Column="2" 
                         Content="Сборки" 
                         Click="BuildsButton_Click" 
                         Width="180" 
                         Height="50" 
                         Margin="10,0,0,0" 
                         FontSize="16" 
-                        FontWeight="Bold" Cursor="Hand"/>
+                        FontWeight="Bold" Cursor="Hand"/>-->
                 
                 <Button Grid.Column="1" 
                         Content="Справочные данные" 

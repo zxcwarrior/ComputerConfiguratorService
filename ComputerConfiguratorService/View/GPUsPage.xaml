@@ -18,7 +18,7 @@
             <Button Content="Удалить" Click="DeleteButton_Click" Width="120" Height="40" Margin="5,0,0,0" FontSize="14"/>
         </StackPanel>
 
-        <ListView x:Name="LVGPUs" Grid.Row="1" Margin="0,0,0,10">
+        <ListView x:Name="LVGPUs" Grid.Row="1" Margin="0,0,0,10" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center"/>

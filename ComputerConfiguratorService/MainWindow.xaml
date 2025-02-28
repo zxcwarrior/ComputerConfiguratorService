@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ComputerConfiguratorService"
         mc:Ignorable="d"
         Title="PCConfiguratorService" 
-        MaxHeight="1080" MaxWidth="1920" MinHeight="450" MinWidth="800"
+        MaxHeight="1080" MaxWidth="1920" MinHeight="862" MinWidth="1420"
         WindowStartupLocation="CenterScreen" WindowState="Normal"
         Icon="/Resources/icon.png">
     <Grid Margin="10">

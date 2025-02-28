@@ -22,7 +22,10 @@ namespace ComputerConfiguratorService.View
         private void LoadComboBoxes()
         {
             var context = DatabaseEntities.GetContext();
-            cbManufacturer.ItemsSource = context.Manufacturers.ToList();
+            var manufacturers = context.Manufacturers
+                               .Where(m => m.ManufacturerName == "AMD" || m.ManufacturerName == "Intel")
+                               .ToList();
+            cbManufacturer.ItemsSource = manufacturers;
             cbSocket.ItemsSource = context.Sockets.ToList();
         }
 
@@ -30,6 +33,14 @@ namespace ComputerConfiguratorService.View
         private void LoadCPUs()
         {
             LVCPUs.ItemsSource = DatabaseEntities.GetContext().CPUs.ToList();
+        }
+
+        // Обработчик кнопки добавить
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            selectedCPU = null; // Сбрасываем, так как добавляем новый процессор
+            ClearForm(); // Очищаем поля формы
+            EditPanel.Visibility = Visibility.Visible; // Показываем панель
         }
 
         // Обработчик кнопки "Редактировать"
@@ -49,44 +60,111 @@ namespace ComputerConfiguratorService.View
                 tbTDP.Text = cpu.TDP.ToString();
                 tbPrice.Text = cpu.Price.ToString();
                 tbImagePath.Text = cpu.ImagePath;
+                EditPanel.Visibility = Visibility.Visible;
             }
             else
             {
-                // Если не выбран элемент – очищаем форму для добавления нового процессора
-                selectedCPU = null;
-                ClearForm();
+                // Если не выбран элемент выводим сообщение об ошибке
+                MessageBox.Show("Выберите процессор для редактирования.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-            EditPanel.Visibility = Visibility.Visible;
         }
 
         // Обработчик кнопки "Сохранить" (создание или обновление)
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
+            var stringBuilder = new System.Text.StringBuilder();
             try
             {
-                // Валидация и получение выбранных значений из ComboBox
-                if (cbManufacturer.SelectedValue == null || cbSocket.SelectedValue == null)
+                if (cbManufacturer.SelectedValue == null)
                 {
-                    MessageBox.Show("Выберите производителя и сокет.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    return;
+                    stringBuilder.AppendLine("Выберите производителя.");
+                }
+                if (cbSocket.SelectedValue == null)
+                {
+                    stringBuilder.AppendLine("Выберите сокет.");
                 }
 
-                int manufacturerID = (int)cbManufacturer.SelectedValue;
-                int socketID = (int)cbSocket.SelectedValue;
-                string model = tbModel.Text;
-                int cores = int.Parse(tbCores.Text);
-                int threads = int.Parse(tbThreads.Text);
-                decimal baseClock = decimal.Parse(tbBaseClock.Text);
-                decimal boostClock = decimal.Parse(tbBoostClock.Text);
-                int tdp = int.Parse(tbTDP.Text);
-                decimal price = decimal.Parse(tbPrice.Text);
-                string imagePath = tbImagePath.Text;
+                int manufacturerID = cbManufacturer.SelectedValue != null ? (int)cbManufacturer.SelectedValue : 0;
+                int socketID = cbSocket.SelectedValue != null ? (int)cbSocket.SelectedValue : 0;
+
+                string model = tbModel.Text.Trim();
+                if (string.IsNullOrEmpty(model))
+                {
+                    stringBuilder.AppendLine("Введите модель процессора.");
+                }
+
+                int cores = 0;
+                if (string.IsNullOrEmpty(tbCores.Text.Trim()))
+                {
+                    stringBuilder.AppendLine("Укажите количество ядер.");
+                }
+                else if (!int.TryParse(tbCores.Text.Trim(), out cores) || cores <= 0)
+                {
+                    stringBuilder.AppendLine("Количество ядер должно быть положительным числом.");
+                }
+
+                int threads = 0;
+                if (string.IsNullOrEmpty(tbThreads.Text.Trim()))
+                {
+                    stringBuilder.AppendLine("Укажите количество потоков.");
+                }
+                else if (!int.TryParse(tbThreads.Text.Trim(), out threads) || threads <= 0)
+                {
+                    stringBuilder.AppendLine("Количество потоков должно быть положительным числом.");
+                }
+
+                decimal baseClock = 0;
+                if (string.IsNullOrEmpty(tbBaseClock.Text.Trim()))
+                {
+                    stringBuilder.AppendLine("Укажите базовую частоту.");
+                }
+                else if (!decimal.TryParse(tbBaseClock.Text.Trim(), out baseClock) || baseClock <= 0)
+                {
+                    stringBuilder.AppendLine("Базовая частота должна быть положительным числом.");
+                }
+
+                decimal boostClock = 0;
+                if (string.IsNullOrEmpty(tbBoostClock.Text.Trim()))
+                {
+                    stringBuilder.AppendLine("Укажите Boost частоту.");
+                }
+                else if (!decimal.TryParse(tbBoostClock.Text.Trim(), out boostClock) || boostClock <= 0)
+                {
+                    stringBuilder.AppendLine("Boost частота должна быть положительным числом.");
+                }
+
+                int tdp = 0;
+                if (string.IsNullOrEmpty(tbTDP.Text.Trim()))
+                {
+                    stringBuilder.AppendLine("Укажите TDP.");
+                }
+                else if (!int.TryParse(tbTDP.Text.Trim(), out tdp) || tdp <= 0)
+                {
+                    stringBuilder.AppendLine("TDP должен быть положительным числом.");
+                }
+
+                decimal price = 0;
+                if (string.IsNullOrEmpty(tbPrice.Text.Trim()))
+                {
+                    stringBuilder.AppendLine("Укажите цену.");
+                }
+                else if (!decimal.TryParse(tbPrice.Text.Trim(), out price) || price <= 0)
+                {
+                    stringBuilder.AppendLine("Цена должна быть положительным числом.");
+                }
+
+                string imagePath = tbImagePath.Text.Trim();
+
+                if (stringBuilder.Length > 0)
+                {
+                    MessageBox.Show(stringBuilder.ToString(), "Ошибки валидации", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
 
                 var context = DatabaseEntities.GetContext();
 
                 if (selectedCPU == null)
                 {
-                    // Создание новой записи
                     CPUs newCpu = new CPUs
                     {
                         ManufacturerID = manufacturerID,
@@ -104,7 +182,6 @@ namespace ComputerConfiguratorService.View
                 }
                 else
                 {
-                    // Обновление существующей записи
                     selectedCPU.ManufacturerID = manufacturerID;
                     selectedCPU.SocketID = socketID;
                     selectedCPU.Model = model;

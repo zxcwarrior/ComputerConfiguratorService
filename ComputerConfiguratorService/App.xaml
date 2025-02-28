@@ -92,7 +92,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="DataGridColumnHeader">
                         <Border BorderBrush="Black" BorderThickness="0.5">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" />
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
